@@ -1,0 +1,206 @@
+* {margin: 0; padding: 0;}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, "Comic Sans Ms";
+	font-size: 14px;
+	color: #fff;
+	background-color: #555;
+}
+
+a:link, a:visited {
+	color: #00f;
+}
+
+.all {
+	width: 1000px;  
+	height: auto;
+	background-color: #fff;
+	margin: 10px auto;
+	min-height: 500px;
+	border: 1px solid #555;
+	border-radius: 15px;
+}
+
+.baner {
+	font-size: 40px;
+	width: auto;
+	height: 150px;
+	background-color: #4F6F9E;
+	text-align: center;
+	margin: 10px 10px 0px 10px;
+	border-radius: 15px;
+}
+
+div.baner p {
+	padding-top: 45px;
+}
+
+.menugorne {
+	width: auto;
+	height: 48px;
+	margin: 20px 10px;
+	padding: 10px;
+	border: 1px solid #555;
+	color: #555;
+	border-radius: 15px;
+}
+
+ul, ul li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+ul li a:link, ul li a:visited {
+	display: block;
+	box-sizing:border-box;
+	text-decoration: none;
+	color: #555;
+	padding: 5px;
+	min-width: 90px;
+	border: 1px solid #555;
+	text-align: center;
+	margin-left: 10%;
+	border-radius: 15px;
+}
+
+ul li a:hover {
+	text-decoration: underline;
+}
+
+.przycisk /* dotyczy przycisku nieaktywnego */
+{
+	display: block;
+	box-sizing:border-box;
+	color: #fff;
+	background-color:#4F6F9E;
+	min-width: 90px;
+	padding: 5px;
+	border-radius: 15px;
+	text-align: center;
+	margin-left: 10%;
+	font-weight:bold;
+}
+.paseklogin /* pasek logowania*/
+{
+	width: auto;
+	background-color: #4F6F9E;
+	padding: 5px;
+	color: #fff;
+	height: 20px;
+	text-align: right;
+	font-style:italic;
+	margin: 0px 10px;
+	border-radius: 15px;
+}
+
+div.paseklogin a:link, div.paseklogin a:visited {
+	color: #fff;
+}
+
+div.form /* formularz wyszukiwania */
+{
+	border: 1px solid #555;
+	width: 170px;
+	min-height: 120px;
+	padding: 5px;
+	text-align: center;
+	margin: 1%;
+	border-radius: 10px;
+	position: absolute;
+	right: 1%;
+}
+
+div.form p.selekcja {
+	text-align: left;
+}
+
+.tresc {
+	position: relative;
+	width: auto;
+	background-color: #fff;
+	min-height: 500px;
+	margin: 20px 10px;
+	padding: 10px;
+	border: 1px solid #555;
+	color: #555;
+	border-radius: 15px;
+	white-space: pre-wrap;
+}
+
+div.news, div.tematy {
+	width: 700px;
+	min-height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #555;
+	border-radius: 10px;
+	margin-top: 10%; /* pozycjonowanie w pionie */
+	padding: 15px;
+	text-align: center;
+}
+
+div.tematy {
+	text-align: left;
+	margin: 1%;
+	position:relative;
+}
+
+textarea {
+	font-size: 14px;
+}
+
+table 
+{
+	text-align: left;
+}
+
+div.srodek /* środkowy blok zawierający komunikat powitalny, formularz logowania, rejestracji, zmiany hasła, resetu hasła, dodawania użytkownika */
+{
+	width: 300px;
+	min-height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #555;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 15%; /* pozycjonowanie w pionie */
+	padding: 10px;
+}
+
+div.srodek, div.tematy, div.form, div.news
+{
+	white-space: normal;
+}
+
+div.stronicuj /* pasek stronicowania */
+{
+	font-size: 10px;
+	bottom: 2%;
+	left: 40%;
+	position: absolute;
+}
+
+div.stronicuj a /* odnośniki do stron */
+{
+	display: inline-block;
+	width: 2em;
+	background-color: #CCC;
+	text-align: center;
+}
+
+.stopka {
+	width: auto;
+	min-height: 40px;
+	text-align: center;
+	margin: 0px 10px 20px;
+	border: 1px solid #555;
+	color: #555;
+	font-size: 10px;
+	padding-top: 10px;
+	border-radius: 15px;
+}

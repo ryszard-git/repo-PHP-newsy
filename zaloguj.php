@@ -95,7 +95,6 @@ if (isset($_POST['submit'])) {
 	$mysqli->close();
 
 	$_SESSION['czy_admin']=$czyadmin;
-	//header( "Location: glowna.php");
 	echo "<script>window.location.href = 'glowna.php';</script>";
 } //if isset
 

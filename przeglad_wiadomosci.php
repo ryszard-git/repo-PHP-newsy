@@ -46,8 +46,7 @@ if (isset($_POST['submit']))
 	$fraza=addslashes(htmlspecialchars(trim($_POST['fraza']))); // zmienna zawiera szukany ciąg znaków
 
 	if ($_SESSION['czy_admin']==='NIE')
-	{
-//		$sql="SELECT id_news, temat FROM wiadomosci WHERE ".$wyszukaj." LIKE '%".$fraza."%' ORDER BY data DESC"; 
+	{ 
 		$sql='SELECT uzytkownicy.id_user, uzytkownicy.login, wiadomosci.id_user, wiadomosci.id_news, wiadomosci.temat FROM uzytkownicy, wiadomosci WHERE uzytkownicy.login="'.$login_usera.'" AND wiadomosci.id_user=uzytkownicy.id_user AND '.$wyszukaj." LIKE '%".$fraza."%' ORDER BY data DESC ";
 	}
 	elseif ($_SESSION['czy_admin']==='TAK')

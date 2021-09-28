@@ -14,7 +14,6 @@ $stronka->DomknijBlok(); //menugorne
 $stronka->WyswietlPasekLogin();
 $stronka->OtworzBlok("tresc");
 $stronka->OtworzBlok("srodek");
-//*************************************
 
 require "config/config.php";
 @ $mysqli = new mysqli($host,$db_user,$db_passwd,$db_name);
@@ -47,8 +46,6 @@ while ($obiekt=$result->fetch_object())
 		$select.='<option value="'.$obiekt->login.'">'.$obiekt->login.' ('.$obiekt->imie.' '.$obiekt->nazwisko.')</option>';
 }
 $select.='</select>';
-
-//*************************************
 ?>
 <form method="post" action="">
 <table>
@@ -78,9 +75,6 @@ if (isset($_POST["submit"]))
 		exit;
 	}
 	$nowe_haslo=sha1(trim($_POST["nowe_haslo"]));
-//****
-
-//****
 	$sql="SELECT login FROM uzytkownicy WHERE login=\"$login_name\"";
 	$result=$mysqli->query($sql);
 	if (!$result) {

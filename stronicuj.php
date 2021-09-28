@@ -5,7 +5,7 @@ if (!isset($_SESSION))
 }
 
 if ($_SESSION['zalogowany']!="tak") {
-	echo "<script>window.location.href = 'zaloguj.php';</script>";
+	echo "<html><body><script>window.location.href = 'zaloguj.php';</script></body></html>";
 	exit;
 }
 

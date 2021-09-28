@@ -14,11 +14,46 @@ $stronka->DomknijBlok(); //menugorne
 $stronka->WyswietlPasekLogin();
 $stronka->OtworzBlok("tresc");
 $stronka->OtworzBlok("srodek");
+//*************************************
+
+require "config/config.php";
+@ $mysqli = new mysqli($host,$db_user,$db_passwd,$db_name);
+if ($mysqli->connect_error) {
+	echo 'Próba połączenia z bazą nie powiodła się.<br/>';
+	echo $mysqli->connect_error;
+	$stronka->DomknijStrone();
+	exit;
+}
+$result=$mysqli->set_charset("utf8");
+if (!$result) {
+	echo "Błąd ustawienia kodowania.<br/>";
+	$stronka->DomknijStrone();
+	exit;
+}
+
+$sql='SELECT login, imie, nazwisko FROM uzytkownicy ORDER BY login';
+$result=$mysqli->query($sql);
+if (!$result) {
+	echo "Błąd zapytania o loginy użytkowników.<br/>";
+	$stronka->DomknijStrone();
+	exit;
+	}
+//tworzenie listy rozwijanej userów
+$select='<select name="userzy">';
+$select.='<option value="">-- wybierz login --</option>';
+while ($obiekt=$result->fetch_object())
+{
+	if ($obiekt->login!='admin')
+		$select.='<option value="'.$obiekt->login.'">'.$obiekt->login.' ('.$obiekt->imie.' '.$obiekt->nazwisko.')</option>';
+}
+$select.='</select>';
+
+//*************************************
 ?>
 <form method="post" action="">
 <table>
-<span>Wpisz login użytkownika, któremu chcesz zresetować hasło oraz nowe hasło dla tego użytkownika.</span><br /><br />
-<tr><td>login:</td><td><input type="text" name="login_name" size="15" maxlength="25" /></td></tr>
+<span>Wybierz login użytkownika, któremu chcesz zresetować hasło oraz wpisz nowe hasło dla tego użytkownika.</span><br /><br />
+<tr><td>login:</td><td><?php echo $select; ?></td></tr>
 <tr><td>nowe hasło:</td><td><input type="password" name="nowe_haslo" size="15" maxlength="25" /></td></tr>
 </table>
 <br />
@@ -28,7 +63,7 @@ $stronka->OtworzBlok("srodek");
 <?php
 if (isset($_POST["submit"]))
 {
-	$login_name=addslashes(trim($_POST["login_name"]));
+	$login_name=addslashes(trim($_POST["userzy"]));
 	$nowe_haslo=$_POST["nowe_haslo"];
 
 	if ((!$login_name) || (!$nowe_haslo)) {
@@ -43,20 +78,9 @@ if (isset($_POST["submit"]))
 		exit;
 	}
 	$nowe_haslo=sha1(trim($_POST["nowe_haslo"]));
-	require "config/config.php";
-	@ $mysqli = new mysqli($host,$db_user,$db_passwd,$db_name);
-	if ($mysqli->connect_error) {
-		echo 'Próba połączenia z bazą nie powiodła się.<br/>';
-		echo $mysqli->connect_error;
-		$stronka->DomknijStrone();
-		exit;
-	}
-	$result=$mysqli->set_charset("utf8");
-	if (!$result) {
-		echo "Błąd ustawienia kodowania.<br/>";
-		$stronka->DomknijStrone();
-		exit;
-	}
+//****
+
+//****
 	$sql="SELECT login FROM uzytkownicy WHERE login=\"$login_name\"";
 	$result=$mysqli->query($sql);
 	if (!$result) {

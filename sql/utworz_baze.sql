@@ -26,5 +26,5 @@ to 'news'@'localhost' identified by 'skok2012';
 
 
 INSERT INTO uzytkownicy (login, haslo, czy_admin, imie, nazwisko)
-	VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "TAK", "Admin", "Administrator");
+	VALUES ("admin", sha1("admin"), "TAK", "Admin", "Administrator");
 

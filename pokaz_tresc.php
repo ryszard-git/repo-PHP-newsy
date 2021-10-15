@@ -58,12 +58,12 @@ echo $tresc.'<br /><br /><hr /><br />';
 
 if ($_SESSION["czy_admin"]==="TAK")
 {
-	echo '<a title="Usuń tą wiadomość" href="usun_wiadomosc.php?idnews='.$idnews.'">Usuń</a>&nbsp;&nbsp;&nbsp;';
+	echo '<button type="button" style="cursor:pointer;" onclick="zapytaj('.$idnews.')">Usuń</button>&nbsp;&nbsp;&nbsp;';
 }
 if ($login===$_SESSION["login_name"])
 {
-	echo '<a title="Edytuj tą wiadomość" href="edytuj_wiadomosc.php?idnews='.$idnews.'">Edytuj</a>&nbsp;&nbsp;';
-	echo '<a style="float:right;" title="Usuń tą wiadomość" href="usun_wiadomosc.php?idnews='.$idnews.'">Usuń</a>&nbsp;&nbsp;&nbsp;';
+	echo '<button type="button" style="cursor:pointer;" onclick="edycja('.$idnews.')">Edytuj</button>&nbsp;&nbsp;&nbsp;';
+	echo '<button type="button" style="float:right; cursor:pointer;" onclick="zapytaj('.$idnews.')">Usuń</button>';
 }
 echo '<span style="font-style:italic; font-size:10px;">Wiadomość dodano: '.$data.' przez: '.$login.' ('.$imie.' '.$nazwisko.')</span><br /><br /><hr />';
 $mysqli->close();

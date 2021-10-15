@@ -44,6 +44,7 @@ public function WyswietlNaglowek()
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/newsy.css">
+<script src="js/newsy.js" defer></script>
 <title><?php echo $this->tytul; ?></title>
 </head>
 <body>

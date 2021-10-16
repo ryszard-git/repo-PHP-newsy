@@ -58,12 +58,17 @@ echo $tresc.'<br /><br /><hr /><br />';
 
 if ($_SESSION["czy_admin"]==="TAK")
 {
-	echo '<button type="button" style="cursor:pointer;" onclick="zapytaj('.$idnews.')">Usuń</button>&nbsp;&nbsp;&nbsp;';
+	$akcja=1; //1 - usuniecie
+	echo '<button type="button" style="cursor:pointer;" onclick="zapytaj('.$idnews.','.$akcja.')">Usuń</button>&nbsp;&nbsp;&nbsp;';
+	unset($akcja);
 }
 if ($login===$_SESSION["login_name"])
 {
-	echo '<button type="button" style="cursor:pointer;" onclick="edycja('.$idnews.')">Edytuj</button>&nbsp;&nbsp;&nbsp;';
-	echo '<button type="button" style="float:right; cursor:pointer;" onclick="zapytaj('.$idnews.')">Usuń</button>';
+	$akcja=0; //0 - edycja
+	echo '<button type="button" style="cursor:pointer;" onclick="zapytaj('.$idnews.','.$akcja.')">Edytuj</button>&nbsp;&nbsp;&nbsp;';
+	$akcja=1; //1 - usuniecie
+	echo '<button type="button" style="float:right; cursor:pointer;" onclick="zapytaj('.$idnews.','.$akcja.')">Usuń</button>';
+	unset($akcja);
 }
 echo '<span style="font-style:italic; font-size:10px;">Wiadomość dodano: '.$data.' przez: '.$login.' ('.$imie.' '.$nazwisko.')</span><br /><br /><hr />';
 $mysqli->close();

@@ -1,4 +1,4 @@
 # repo-PHP-newsy
 Newsy
 
-System zarzadzania wiadomosciami napisany w PHP/MySQL.
+System zarzadzania wiadomosciami stworzony w PHP/MySQL.
